@@ -1,0 +1,21 @@
+{
+  "name": "rdfshape-y-mongodb-provider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "npm app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Iván Álvarez López for WESO Group",
+  "license": "ISC",
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "lodash.debounce": "^4.0.8",
+    "ws": "^8.18.1",
+    "y-mongodb-provider": "^0.2.0",
+    "y-websocket": "^3.0.0",
+    "y-websockets-server": "^9.2.1",
+    "yjs": "^13.6.26"
+  }
+}
