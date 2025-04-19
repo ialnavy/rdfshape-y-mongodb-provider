@@ -1,4 +1,3 @@
-const http = require('http');
 const { MongodbPersistence } = require("y-mongodb-provider");
 const WebSocket = require('ws');
 const { setPersistence, setupWSConnection } = require("./wsServer/utils");
@@ -14,12 +13,6 @@ const mdb = new MongodbPersistence(mongodb_host, {
     collectionName: "transactions",
     flushSize: 100,
     multipleCollections: true
-});
-
-// WebSockets server
-const server = http.createServer((request, response) => {
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.end('okay');
 });
 
 // Set up the persistence layer for Yjs documents
@@ -82,12 +75,3 @@ wss.on('connection', async (conn, req, options) => {
     console.log("Connection set");
 });
 
-server.on('upgrade', (request, socket, head) => {
-    wss.handleUpgrade(request, socket, head, (ws) => {
-        wss.emit('connection', ws, request);
-    });
-});
-
-server.listen(port, host, () => {
-    console.log("Running WebSocket Server on port ".concat(port));
-});
